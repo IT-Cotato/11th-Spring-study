@@ -72,7 +72,7 @@ git clone https://github.com/IT-Cotato/11th-Spring-study.git
 ```
 - 과제 제출 전 브랜치를 생성합니다.
 ```bash
-git checkout -b [본인 깃허브 핸들명]-week1
+git checkout -b [본인 깃허브 핸들명]/week1
 ```
 - 본인의 기본 디렉토리 구조를 생성합니다.
 
@@ -89,7 +89,7 @@ mkdir -p [본인 깃허브 핸들명]/week1
 ```bash
 git add .
 git commit -m "[n주차] 학습 내용 제출"
-git push origin [본인 깃허브 핸들명]-week[n]
+git push origin [본인 깃허브 핸들명]/week[n]
 ```
 - GitHub에서 develop 브랜치로 PR을 생성합니다.
 - PR 제목은 "[n주차] 이름 - 과제" 형식으로 작성합니다.
@@ -99,7 +99,7 @@ git push origin [본인 깃허브 핸들명]-week[n]
 ```bash
 git checkout develop
 git pull origin develop
-git checkout -b [본인 깃허브 핸들명]-week[n+1]
+git checkout -b [본인 깃허브 핸들명]/week[n+1]
 ```
 - 해당 주차의 폴더를 생성합니다.
 ```bash
