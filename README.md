@@ -68,11 +68,11 @@ IT 연합동아리 코테이토에서 진행하는 스프링 프레임워크 학
 #### 1. 처음 제출 시 - 저장소 클론 및 초기 설정
 - 스터디 저장소를 로컬로 클론합니다.
 ```bash
-   git clone https://github.com/IT-Cotato/11th-Spring-study.git
+git clone https://github.com/IT-Cotato/11th-Spring-study.git
 ```
 - 과제 제출 전 브랜치를 생성합니다.
 ```bash
-  git checkout -b [본인 깃허브 핸들명]-week1
+git checkout -b [본인 깃허브 핸들명]-week1
 ```
 - 본인의 기본 디렉토리 구조를 생성합니다.
 
