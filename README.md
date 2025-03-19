@@ -102,14 +102,14 @@ git add .
 git commit -m "[n주차] 학습 내용 및 실습 코드 제출"
 git push origin [본인 깃허브 핸들명]-week[n]
 ```
-- GitHub에서 main 브랜치로 PR을 생성합니다.
+- GitHub에서 develop 브랜치로 PR을 생성합니다.
 - PR 제목은 "[n주차] 이름 - 과제" 형식으로 작성합니다.
 
 #### 4. 다음 과제 시작
 - 이전 PR이 merge된 후, 최신 메인 브랜치를 가져옵니다.
 ```bash
-git checkout main
-git pull origin main
+git checkout develop
+git pull origin develop
 git checkout -b [본인 깃허브 핸들명]-week[n+1]
 ```
 - 해당 주차의 폴더를 생성합니다.
