@@ -21,7 +21,7 @@ WHERE t.name = '팀A'
 
 ```sql
 -- JPQL, SQL 동일함
-SELECT **m.username**, **m.age** FROM Member m
+SELECT m.username, m.age FROM Member m
 ```
 
 ### 2. 단일 값 연관 경로
@@ -39,7 +39,7 @@ SELECT **m.username**, **m.age** FROM Member m
 SELECT t.member FROM Team t
 
 // SQL (묵시적 내부 조인 발생!!)
-SELECT m.* FROM Team t **INNER JOIN Member m ON t.member_id = m.id**
+SELECT m.* FROM Team t INNER JOIN Member m ON t.member_id = m.id
 ```
 
 ### 3. 컬렉션 값 연관 경로
@@ -49,14 +49,14 @@ SELECT m.* FROM Team t **INNER JOIN Member m ON t.member_id = m.id**
 - 탐색의 끝 → 더 이상 경로 탐색 불가 (.size 정도만 가능)
 
 ```java
-String query = "SELECT **t.members** FROM Team t"; 
+String query = "SELECT t.members FROM Team t"; 
 Collection result = em.createQuery(query, Collection.class).getResultList();
 ```
 
 ✅ 명시적 조인으로 별칭을 부여해 사용해야 함
 
 ```sql
-SELECT **m.username** FROM Team t JOIN ****t.members m
+SELECT m.username FROM Team t JOIN t.members m
 ```
 
 
@@ -98,10 +98,10 @@ JPQL에서 성능 최적화를 위해 제공하는 기능
 
 ```sql
 -- JPQL
-SELECT **m** FROM Member m JOIN FETCH m.team
+SELECT m FROM Member m JOIN FETCH m.team
 
 -- SQL
-**SELECT M.*, T.*** 
+SELECT M.*, T.*
 FROM MEMBER M 
 INNER JOIN TEAM T ON M.TEAM_ID = T.ID
 ```
@@ -130,7 +130,7 @@ for(Member member : result) {
 **✅ Fetch Join 사용 시**
 
 ```java
-String query = "SELECT m FROM Member m **JOIN FETCH** m.team";
+String query = "SELECT m FROM Member m JOIN FETCH m.team";
 List<Member> result = em.createQuery(query, Member.class).getResultList();
 
 for(Member member : result) {
@@ -207,10 +207,10 @@ WHERE t.name = '팀A';
 
 ```sql
 -- JPQL
-SELECT t FROM Team t **JOIN** t.members m WHERE t.name = '팀A'
+SELECT t FROM Team t JOIN t.members m WHERE t.name = '팀A'
 
 -- SQL
-**SELECT T.*** 
+SELECT T.* 
 FROM Team T 
 INNER JOIN MEMBER M ON T.ID = M.TEAM_ID 
 WHERE T.NAME = '팀A'
@@ -238,10 +238,10 @@ for (Team team : result) {
 
 ```sql
 -- JPQL
-SELECT t FROM Team t **JOIN FETCH** t.members WHERE t.name = '팀A'
+SELECT t FROM Team t JOIN FETCH t.members WHERE t.name = '팀A'
 
 -- SQL
-**SELECT T.*, M.***
+SELECT T.*, M.*
 FROM TEAM T
 INNER JOIN MEMBER M ON T.ID = M.TEAM_ID
 WHERE T.NAME = '팀A'
